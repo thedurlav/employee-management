@@ -77,6 +77,9 @@ const EmployeeForm = ({ fetchEmployees }) => {
           fetchEmployees();
         } else {
           alert('Failed to add employee');
+          res.text().then((a, b) => {
+            console.log(a);
+          });
         }
       })
       .catch((err) => {

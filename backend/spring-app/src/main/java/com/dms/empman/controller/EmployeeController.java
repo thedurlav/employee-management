@@ -35,8 +35,9 @@ public class EmployeeController {
 	
 	@PostMapping("/employees")
 	public ResponseEntity<String> saveEmployee(@RequestBody Employee employee) {
+		if(employeeRepository.existsById(employee.getEmployeeId()))
+			return new ResponseEntity<String>("An Employee with "+employee.getEmployeeId()+" already exists!", HttpStatus.BAD_REQUEST);
 		Employee saved = employeeRepository.save(employee);
-		
 		return new ResponseEntity<String>(saved.getFullName() +" 's details saved", HttpStatus.CREATED);
 	}
 	
