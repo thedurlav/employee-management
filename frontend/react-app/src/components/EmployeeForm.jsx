@@ -18,6 +18,44 @@ const EmployeeForm = ({ fetchEmployees }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const dob = new Date(employee.dateOfBirth);
+    const doj = new Date(employee.dateOfJoining);
+    const today = new Date();
+
+    const age = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+    const dayDiff = today.getDate() - dob.getDate();
+    const isAdult =
+      age > 18 ||
+      (age === 18 && (monthDiff > 0 || (monthDiff === 0 && dayDiff >= 0)));
+
+    if (dob > today) {
+      alert('Date of Birth cannot be in the future.');
+      return;
+    }
+
+    if (!isAdult) {
+      alert('Employee must be at least 18 years old.');
+      return;
+    }
+
+    if (doj < dob) {
+      alert('Date of Joining must be after Date of Birth.');
+      return;
+    }
+
+    if (employee.contactNumber.length != 10) {
+      alert('Phone Number is not valid must be 10 digits');
+      return;
+    }
+
+    const nameRegex = /^[A-Za-z\s]+$/;
+
+    if (!nameRegex.test(employee.fullName)) {
+      alert('Full Name must contain only alphabetic characters and spaces.');
+      return;
+    }
+
     fetch('http://localhost:8080/api/employees', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -59,7 +97,7 @@ const EmployeeForm = ({ fetchEmployees }) => {
         </div>
 
         <div className="p-6 md:col-span-3">
-          <h2 className="font- mb-6 text-center font-serif text-4xl italic text-fuchsia-600">
+          <h2 className="font- mb-6 text-center font-serif text-4xl italic text-purple-600">
             New Employee Form ...
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
