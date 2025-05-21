@@ -1,3 +1,16 @@
-export default function App() {
-  return <h1 className="flex text-3xl font-bold underline">Hello world!</h1>;
-}
+import { Navigate, Route, Routes } from 'react-router-dom';
+import './App.css';
+import EmployeeApp from './components/EmployeeApp';
+const App = () => {
+  return (
+    <div className="app">
+      <Routes>
+        <Route path="/employees" element={<EmployeeApp />} />
+        <Route path="*" element={<Navigate to="/employees" replace />} />
+      </Routes>
+      ;
+    </div>
+  );
+};
+
+export default App;
