@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import bgImage from '../assets/image.svg';
+const URL = 'https://empman-umyx.onrender.com';
+
 const EmployeeForm = ({ fetchEmployees }) => {
   const [employee, setEmployee] = useState({
     employeeId: '',
@@ -56,7 +58,7 @@ const EmployeeForm = ({ fetchEmployees }) => {
       return;
     }
 
-    fetch('http://localhost:8080/api/employees', {
+    fetch(`${URL}/api/employees`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(employee),

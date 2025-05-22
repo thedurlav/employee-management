@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import EmployeeForm from './EmployeeForm';
 import EmployeeList from './EmployeeList';
-
+const URL = 'https://empman-umyx.onrender.com';
 const EmployeeApp = () => {
   const [employees, setEmployees] = useState([]);
 
   const fetchEmployees = () => {
-    fetch('http://localhost:8080/api/employees')
+    fetch(`${URL}/api/employees`)
       .then((response) => response.json())
       .then((data) => setEmployees(data))
       .catch((error) => console.error('Error fetching employees:', error));
