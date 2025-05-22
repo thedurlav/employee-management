@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dms.empman.model.Employee;
 import com.dms.empman.repository.EmployeeRepository;
 
-@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/")
 public class EmployeeController {
