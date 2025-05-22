@@ -16,6 +16,13 @@ Database : MySql
 
 3. Maven Installed and path set. https://maven.apache.org/download.cgi
 
+4. Mysql https://dev.mysql.com/downloads/installer/ 
+
+`database configuration 
+user: root
+password: root 
+port : 3306 (default)
+`
 
 
 __To run the app simply click on build-and-run.__
