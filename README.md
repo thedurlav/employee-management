@@ -4,7 +4,7 @@ Frontend : React Javascript Framework
 
 Backend : Spring Framework ( Java )
 
-Database : MySql
+Database : PostgresSQL
 
 
 
@@ -16,12 +16,13 @@ Database : MySql
 
 3. Maven Installed and path set. https://maven.apache.org/download.cgi
 
-4. Mysql https://dev.mysql.com/downloads/installer/ 
+4. Postgres Installed and Running
 
-`database configuration 
+`database configuration
+database: demo 
 user: root
 password: root 
-port : 3306 (default)
+port : 5432 (default)
 `
 
 
