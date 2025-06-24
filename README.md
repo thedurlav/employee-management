@@ -16,7 +16,7 @@ Database : PostgresSQL
 
 3. Maven Installed and path set. https://maven.apache.org/download.cgi
 
-4. Postgres Installed and Running
+4. Postgres Installed and Running https://www.postgresql.org/download/
 
 `database configuration
 database: demo 
